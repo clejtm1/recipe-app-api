@@ -12,9 +12,7 @@ services:
       - ./app:/app
     command:  > 
       sh -c "python manage.py runserver 0.0.0.0:8000"
-    enviroment: # In the real world these should obvoiously not be hard coded in it is important that 
-                # DB_NAME is equal to POSTGRES_USER DB_USER is equal to POSTGRES_USER and DB_PASS is equal to 
-                # POSTGRES_PASSWORD
+    enviroment: 
       - DB_HOST=db
       - DB_NAME=devdb
       - DB_USER=devuser
@@ -25,7 +23,7 @@ services:
     image: postgres:13-alpine
     volumes:
       - dev-db-data:/var/lib/postgresql/data
-    enviroment: # in the real world use real user name and password not one which is hard coded in
+    enviroment: 
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme
