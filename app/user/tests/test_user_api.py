@@ -3,7 +3,7 @@ Tests the user API
 """
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from djang.urls import reverse
+from django.urls import reverse
 
 from rest_framework.test import APIClient
 from rest_framework import status
@@ -39,7 +39,7 @@ class PublicUserApiTests(TestCase):
 
     def test_user_with_email_exists_error(self):
         """test error returned if user with email exists"""
-         payload={
+        payload={
             'email': 'test@example.com',
             'password': 'testpass123',
             'name': 'Test Name',
@@ -51,7 +51,7 @@ class PublicUserApiTests(TestCase):
 
     def test_password_too_short_error(self):
         """ Test an error is returned if a password is shorter than 5 chars """
-         payload={
+        payload={
             'email': 'test@example.com',
             'password': 'pw',
             'name': 'Test Name',
